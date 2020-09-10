@@ -22,6 +22,8 @@
         Address: <input type="text">
         <br><br>
         City: <input type="text">
+	<br><br>
+        Password: <input type="password">
         <br><br>
         Phone Number: <input type="number">
         <br><br>
