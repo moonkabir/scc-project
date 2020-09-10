@@ -43,8 +43,6 @@ if (!$connection) {
             }
             if ($_POST['gender']) {
                 $gender = $_POST['gender'];
-                echo $gender;
-                die();
             }else{
                 $gender=$data['gender'];
             }
