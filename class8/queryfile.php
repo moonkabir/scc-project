@@ -41,9 +41,14 @@ if (!$connection) {
             }else{
                 $comment=$data['comment'];
             }
-            if ($_POST['gender']) {
+            // data check to not empty file in this process 
+            if(!empty($_POST['gender'])) {
                 $gender = $_POST['gender'];
-            }else{
+            }
+            // if ($_POST['gender']) {
+            //     $gender = $_POST['gender'];
+            // }
+            else{
                 $gender=$data['gender'];
             }
         }
