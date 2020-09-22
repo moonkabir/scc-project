@@ -1,0 +1,196 @@
+a,
+a:hover {
+    text-decoration: none;
+    color: #AA2205;
+}
+li{
+    list-style: none;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+.slider {
+    background-image: url(../images/bg.jpg);
+    height: 100vh;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 100;
+    background: #fff;
+    opacity: 0.8;
+}
+
+header nav {
+    display: block;
+}
+
+header nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    list-style: none;
+    margin: 0;
+}
+
+header nav ul li a.active,
+header nav ul li a:hover {
+    color: #AA2205;
+}
+
+header nav ul li a {
+    display: block;
+    padding: 20px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+    margin: 10px
+}
+
+header nav ul li a.appointment {
+    color: #AA2205;
+    border: 1px solid #AA2205;
+    background-color: transparent;
+    transition: 0.5s all;
+}
+
+header nav ul li a.appointment:hover {
+    background-color: #AA2205;
+    color: #fff;
+}
+
+section.login .login-tab-section {
+    width: 100%;
+    position: absolute;
+    bottom: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    padding-bottom: 20px;
+}
+
+section.login .login-tab-section .login-tab {
+    display: block;
+    float: left;
+    margin: 0% 0 0% 1.6%;
+    background: #F1F6F9;
+    padding: 1.5%;
+    border-radius: 1.1em;
+}
+
+section.login .login-tab-section .login-tab .login-tab-img {
+    width: 31%;
+    display: block;
+    float: left;
+}
+
+section.login .login-tab-section .login-tab .login-tab-img img {
+    max-width: 100%;
+    display: block;
+}
+
+section.login .login-tab-section .login-tab .login-tab-text {
+    width: 64.2%;
+    margin-top: 10px;
+    display: block;
+    float: left;
+    margin-left: 10px;
+}
+
+section.login .login-tab-section .login-tab .login-tab-text h3 {
+    /* color: #b94680; */
+    background: -webkit-linear-gradient(#7e3230, #AA2205);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+}
+
+section.login .login-tab-section .login-tab .login-tab-text p {
+    /* color: #b94680; */
+    background: -webkit-linear-gradient(#7e3230, #AA2205);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0;
+    margin-bottom: 5px;
+}
+
+section.login .login-tab-section .login-tab .login-tab-text a {
+    color: rgb(139, 139, 139);
+}
+
+section.login .login-tab-section .login-tab .login-tab-text a:hover {
+    /* color: #b94680; */
+    background: -webkit-linear-gradient(#7e3230, #AA2205);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/*--------login page---------*/
+
+section.login .login-form-section {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+section.login .login-form-section .box-login {
+    border: 1px solid #6f2a6f;
+    padding: 5px;
+    text-align: center;
+    background: white;
+    color: #AA2205;
+}
+
+button.btn.pull-right {
+    background: #AA2205;
+    border-color: #AA2205;
+    color: #fff;
+}
+
+
+/*------------registration page----------*/
+
+section.login .registration-form-section {
+    width: 100%;
+    position: absolute;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -47%);
+}
+
+section.login .registration-form-section .box-login {
+    border: 1px solid #6f2a6f;
+    padding: 5px;
+    text-align: center;
+    background: #fff;
+    color: #AA2205;
+}
+
+section.login .registration-form-section .gender {
+    margin-right: 10px;
+}
+
+.admin-header h2,.admin-header ul,#sidebar .main-navigation-menu a ,#sidebar .navbar-title{
+    color: white;
+}
+#sidebar nav{
+    margin-top: 100px;
+}
+.dropdown-divider{
+    width: 150px;
+}
