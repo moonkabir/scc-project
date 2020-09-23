@@ -1,4 +1,7 @@
-<?php include("inc/header.php") ?>
+<?php 
+include("inc/header.php");
+include("inc/queryfile.php");
+?>
 	<section class="login">
 		<div class="container">
 			<div class="row">
@@ -60,6 +63,7 @@
 									</button>
 								</div>
 							</fieldset>
+							<input type="hidden" name="action" value="student-registration">
 						</form>
 						<div class="copyright">
 							&copy; <span class="current-year"><?php echo date("Y");?></span><span class="text-bold text-uppercase"> LMS</span>. <span>All rights reserved</span>

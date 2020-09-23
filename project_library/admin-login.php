@@ -6,7 +6,7 @@ include("inc/queryfile.php") ;
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 login-form-section">
-					<h2 class="text-center"> HMSP | Admin Login</h2>
+					<h2 class="text-center"> LMSP | Admin Login</h2>
 					<div class="box-login">
 						<form class="form-login" method="post">
 							<fieldset>

@@ -194,3 +194,15 @@ section.login .registration-form-section .gender {
 .dropdown-divider{
     width: 150px;
 }
+
+.dashboard-manage,.dashboard-manage .total,.panel .panel-title{
+    color: white;
+}
+.dashboard-manage .panel{
+    padding: 50px;
+    border: 1px solid white;
+}
+
+.admin-header{
+    margin-top: 100px;
+}
