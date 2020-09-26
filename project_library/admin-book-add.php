@@ -6,7 +6,7 @@ if(!$_user_id){
     die();
 }
 include('inc/headerwithoutnav.php');
-include('inc/countcontent.php');
+include('inc/queryfile.php');
 ?>
 <div class="container-fluid dashboard">
     <div class="row">
@@ -15,10 +15,10 @@ include('inc/countcontent.php');
 		</div>
 		<div class="col-lg-9">
 			<div class="admin-header d-flex justify-content-between">
-				<h2> Admin | Dashboard</h2>
+				<h2> Admin | ADD BOOK</h2>
 			</div>
 			<div class="row dashboard-manage">
-				<?php include('inc/admin/dashboard.php'); ?>
+				<?php include('inc/admin/add-book-dashboard.php'); ?>
 			</div>
 		</div>
     </div>

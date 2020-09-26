@@ -1,5 +1,7 @@
 <?php
-session_start();
+if(!isset($_SESSION)){ 
+    session_start();
+}
 include_once( 'config.php' );
 $action = $_POST['action'] ?? '';
 $connection = mysqli_connect( DB_SERVER, DB_USER, DB_PASS, DB_NAME );
@@ -39,7 +41,24 @@ if (!$connection) {
             $query = "INSERT INTO `students`(`name`, `address`, `city`, `gender`,`email`, `password`) VALUES ('{$full_name}','{$address}','{$city}','{$gender}','{$email}','{$hash_pass}')";
             mysqli_query($connection,$query);
         }
-        header('Location: index.php');
+        header('Location: student-login.php');
+    }
+    elseif('admin-student-registration' == $action){
+        $full_name = $_POST['full_name']??'';
+        $address = $_POST['address']??'';
+        $city = $_POST['city']??'';
+        $gender = $_POST['gender']??'';
+        $email = $_POST['email']??'';
+        $password = $_POST['password']??'';
+        $password_again = $_POST['password_again']??'';
+        if($password == $password_again){
+            $hash_pass = password_hash($password,PASSWORD_BCRYPT);
+        }
+        if($full_name && $address && $city && $gender && $email && $hash_pass){
+            $query = "INSERT INTO `students`(`name`, `address`, `city`, `gender`,`email`, `password`) VALUES ('{$full_name}','{$address}','{$city}','{$gender}','{$email}','{$hash_pass}')";
+            mysqli_query($connection,$query);
+        }
+        header('Location: admin-manage-students.php');
     }
     elseif('student-login' == $action) {
         $email = $_POST['email']??'';
@@ -92,6 +111,59 @@ if (!$connection) {
             $result = mysqli_query($connection,$query);
         }
         header( 'Location: student-profile.php' );
+    }
+    elseif('admin-edit-student-profile' == $action){
+        $studentid = $_POST['studentid'] ?? '';
+        $query = "SELECT * FROM `students` WHERE id = '{$studentid}'";
+        $result = mysqli_query($connection,$query);
+        while($data = mysqli_fetch_assoc($result)){
+            if($_POST['editstudentname']){
+                $editstudentname = $_POST['editstudentname'];
+            }else{
+                $editstudentname = $data['name'];
+            }
+            if ($_POST['editstudentaddress']) {
+                $editstudentaddress = $_POST['editstudentaddress'];
+            }else{
+                $editstudentaddress=$data['address'];
+            }
+            if ($_POST['editstudentcity']) {
+                $editstudentcity = $_POST['editstudentcity'];
+            }else{
+                $editstudentcity=$data['city'];
+            }
+            if ($_POST['editstudentpassword']) {
+                $editstudentpassword = password_hash($_POST['editstudentpassword'],PASSWORD_BCRYPT) ;
+            }
+            else{
+                $editstudentpassword=$data['password'];
+            }
+        }
+        $updatedata = ($editstudentname|| $editstudentaddress || $editstudentcity || $editstudentpassword);
+        if($studentid && $updatedata){
+            $query = "UPDATE `students` SET `name`='{$editstudentname}',`address`='{$editstudentaddress}',`city`='{$editstudentcity}',`password`='{$editstudentpassword}' WHERE `id` = '{$studentid}'";
+            $result = mysqli_query($connection,$query);
+        }
+        header( 'Location: admin-manage-students.php' );
+    }
+    elseif('admin-student-delete' == $action){
+        $studentid = $_POST['studentid'] ?? '';
+        if($studentid){
+            $query = "DELETE FROM `students` WHERE id = '{$studentid}'";
+            $result = mysqli_query($connection,$query);
+        }
+        header( 'Location: admin-manage-students.php' );
+    }
+    elseif('add-book' == $action){
+        $book_name = $_POST['book_name']??'';
+        $author_name = $_POST['author_name']??'';
+        $edition = $_POST['edition']??'';
+        $publication = $_POST['publication']??'';
+        if($book_name && $author_name && $edition && $publication){
+            $query = "INSERT INTO `books`(`book_name`, `author`, `edition`, `publication`) VALUES ('{$book_name}','{$author_name}','{$edition}','{$publication}')";
+            mysqli_query($connection,$query);
+        }
+        header('Location: admin-books-manage.php');
     }
 }
 
