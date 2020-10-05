@@ -13,6 +13,8 @@
                 <li><div class="dropdown-divider"></div></li>
                 <li class="dropbtn"><a href="admin-book-issue.php"><h5>Book Issue</h5></a></li>
                 <li><div class="dropdown-divider"></div></li>
+                <li class="dropbtn"><a href="admin-book-issue-manage.php"><h5>Book Issue Manage</h5></a></li>
+                <li><div class="dropdown-divider"></div></li>
                 <li class="dropbtn"><a href="admin-book-add.php"><h5>Book Add</h5></a></li>
                 <li><div class="dropdown-divider"></div></li>
                 <li class="dropbtn"><a href="admin-books-manage.php"><h5>Book manage</h5></a></li>

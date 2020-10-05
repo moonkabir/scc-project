@@ -165,6 +165,28 @@ if (!$connection) {
         }
         header('Location: admin-books-manage.php');
     }
+    elseif('admin-book-issue' == $action){
+        $book_id = $_POST['book_id']??'';
+        if($book_id ){
+            $query = "SELECT * FROM `books` WHERE id = '{$book_id}'";
+            $result = mysqli_query($connection,$query);
+            while($data = mysqli_fetch_assoc($result)){
+                $book_name = $data['book_name'];
+                $author = $data['author'];
+                $edition = $data['edition'];
+                $publication = $data['publication'];
+            }
+        }
+        $student_mail = $_POST['student_mail']??'';
+        $book_issue_date = strtotime("now")+(strtotime("+10days 6 hours")-strtotime("now"));
+        $adate = date("jS M, Y", $book_issue_date);
+        if($book_id && $student_mail){
+            $query = "INSERT INTO `book_issue`( `book_name`, `book_id`, `book_author`, `book_edition`, `book_publication`, `student_mail`, `return_date`) VALUES ('{$book_name}','{$book_id}','{$author}','{$edition}','{$publication}','{$student_mail}','{$adate}')";
+            mysqli_query($connection,$query);
+        }
+
+        header('Location: admin-book-issue-manage.php');
+    }
 }
 
 
