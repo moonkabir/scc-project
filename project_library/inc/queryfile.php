@@ -187,6 +187,34 @@ if (!$connection) {
 
         header('Location: admin-book-issue-manage.php');
     }
+    elseif('student-book-issue' == $action){
+        $book_id = $_POST['book_id']??'';
+        if($book_id ){
+            $query = "SELECT * FROM `books` WHERE id = '{$book_id}'";
+            $result = mysqli_query($connection,$query);
+            while($data = mysqli_fetch_assoc($result)){
+                $book_name = $data['book_name'];
+                $author = $data['author'];
+                $edition = $data['edition'];
+                $publication = $data['publication'];
+            }
+        }
+        $_student_id = $_SESSION['id'];
+        if($_student_id){
+            $query = "SELECT email FROM `students` WHERE id = '{$_student_id}'";
+            $result = mysqli_query($connection,$query);
+            while($data = mysqli_fetch_assoc($result)){
+                $student_mail = $data['email'];
+            }
+        }
+        $book_issue_date = strtotime("now")+(strtotime("+10days 6 hours")-strtotime("now"));
+        $adate = date("jS M, Y", $book_issue_date);
+        if($book_id && $_student_id){
+            $query = "INSERT INTO `book_issue`( `book_name`, `book_id`, `book_author`, `book_edition`, `book_publication`, `student_id`, `student_mail`, `return_date`) VALUES ('{$book_name}','{$book_id}','{$author}','{$edition}','{$publication}','{$_student_id}','{$student_mail}','{$adate}')";
+            mysqli_query($connection,$query);
+        }
+        header('Location: student-book-issue-manage.php');
+    }
 }
 
 
