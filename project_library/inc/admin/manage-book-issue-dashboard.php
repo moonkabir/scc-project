@@ -3,7 +3,7 @@
         <div class="col-md-12 doctor-specialization-list">
             <h5 class="text-center">Your Account</h5>
             <div class="text-right">
-                <a class="update" href='admin-student-delete.php'>Delete</a>
+                <a class="update" href='admin-book-delete.php'>Delete</a>
             </div>
             <form method="POST">
                 <table class="table table-hover" id="sample-table-1">
@@ -16,6 +16,7 @@
                             <th>Book Edition</th>
                             <th>Book Publication</th>
                             <th>Student Email</th>
+                            <th>Fine</th>
                             <th>Issue Date</th>
                             <th>return Date</th>
                         </tr>
@@ -33,6 +34,8 @@
                             }else{
                                 $edition = $data['book_edition']."th";
                             }
+
+                            $current_date = strtotime("now");
                     ?>
                     <tr>
                         <td><?php echo $data['id'];?></td>
@@ -42,6 +45,7 @@
                         <td><?php echo $edition;?></td>
                         <td><?php echo $data['book_publication'];?></td>
                         <td><?php echo $data['student_mail'];?></td>
+                        <td><?php echo $data['fine'];?></td>
                         <td><?php echo $data['issue_date'];?></td>
                         <td><?php echo $data['return_date'];?></td>
                     </tr>
